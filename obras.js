@@ -27,12 +27,12 @@ window.BRENDA = {
     {src:'assets/obras/florece.png', ratio:'3/4', shape:'oval', size:'30 x 40 cm', year:'2025',
      es:{t:'Admirando lo que Florece', tec:'Óleo', d:'Este autorretrato tiene características de lo Prerrafaelita: una modelo con cabello cobrizo, de fondo un paisaje, colores vibrantes que resalten y que obtenga una obra armoniosa.'},
      en:{t:'Admiring What Blooms', tec:'Oil', d:'This self-portrait carries Pre-Raphaelite traits: a copper-haired model, a landscape behind her, and vibrant colors that stand out within a harmonious whole.'}},
-    {src:'assets/obras/crybaby.png', group:'otros', ratio:'3/4', shape:'rect', size:'', year:'',
+    {src:'assets/obras/crybaby.png', group:'otros', ratio:'3/5', shape:'rect', size:'', year:'',
      es:{t:'Crybaby', tec:'Lápiz de color', d:''}, en:{t:'Crybaby', tec:'Colored pencil', d:''}},
     {src:'assets/obras/corona.png', group:'otros', ratio:'3/4', shape:'oval', size:'', year:'',
-     es:{t:'La Corona', tec:'Lápiz de color', d:''}, en:{t:'The Crown', tec:'Colored pencil', d:''}},
+     es:{t:'Hades (Melanie Martinez)', tec:'Lápiz de color', d:''}, en:{t:'Hades (Melanie Martinez)', tec:'Colored pencil', d:''}},
     {src:'assets/obras/creador.png', group:'otros', ratio:'4/5', shape:'rect', size:'', year:'',
-     es:{t:'El Creador', tec:'Óleo', d:''}, en:{t:'The Creator', tec:'Oil', d:''}}
+     es:{t:'Interpretación de Creación de Adán', tec:'Óleo', d:''}, en:{t:'Interpretation of The Creation of Adam', tec:'Oil', d:''}}
   ],
   bio: {
     es: ['Artista costarricense Brenda González Solís, nacida el 17 de Julio 2004.',
