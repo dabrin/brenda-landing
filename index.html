@@ -83,7 +83,41 @@ a:hover{color:#f1dca6}
         <p style="margin:0;font-size:19px;font-style:italic;color:#a9a68c">{{ t.galHint }}</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:64px 44px;align-items:end">
-        <sc-for list="{{ works }}" as="w" hint-placeholder-count="8">
+        <sc-for list="{{ mainWorks }}" as="w" hint-placeholder-count="8">
+          <button onClick="{{ w.open }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:18px">
+            <sc-if value="{{ w.isOval }}" hint-placeholder-val="{{ true }}">
+              <div style="position:relative;width:100%;aspect-ratio:604/721;filter:drop-shadow(0 18px 26px rgba(0,0,0,0.6))" style-hover="transform:translateY(-4px)">
+                <img src="{{ w.src }}" alt="{{ w.title }}" style="position:absolute;top:14.6%;left:13.2%;width:73.6%;height:74.6%;object-fit:cover;object-position:center 25%;border-radius:50%;background:#1b1f14">
+                <img src="assets/marco-oval.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+              </div>
+            </sc-if>
+            <sc-if value="{{ w.isRect }}" hint-placeholder-val="{{ false }}">
+              <div style="position:relative;width:100%;margin:9% 0 6%;filter:drop-shadow(0 18px 26px rgba(0,0,0,0.6))" style-hover="transform:translateY(-4px)">
+                <div style="padding:7.5%;background:linear-gradient(140deg,#6e4f20 0%,#c9a862 20%,#8a6a2e 42%,#e0c48a 60%,#6e4f20 80%,#a88a4c 100%);box-shadow:inset 0 0 0 2px rgba(240,215,150,0.55),inset 0 0 18px rgba(40,28,10,0.6)">
+                  <div style="padding:4px;background:#2a2414;box-shadow:inset 0 0 0 1px #e0c48a,0 0 0 3px #7a5a26">
+                    <img src="{{ w.src }}" alt="{{ w.title }}" style="display:block;width:100%;aspect-ratio:{{ w.ratio }};object-fit:cover">
+                  </div>
+                </div>
+                <img src="assets/crest-top.png" alt="" style="position:absolute;top:0;left:50%;width:48%;transform:translate(-50%,-58%);pointer-events:none">
+                <img src="assets/crest-bottom.png" alt="" style="position:absolute;bottom:0;left:50%;width:36%;transform:translate(-50%,52%);pointer-events:none">
+                <img src="assets/crest-side.png" alt="" style="position:absolute;left:0;top:50%;width:11%;transform:translate(-48%,-50%);pointer-events:none">
+                <img src="assets/crest-side.png" alt="" style="position:absolute;right:0;top:50%;width:11%;transform:translate(48%,-50%) scaleX(-1);pointer-events:none">
+              </div>
+            </sc-if>
+            <div style="text-align:center;display:flex;flex-direction:column;gap:4px">
+              <div style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:#ecebe4">{{ w.title }}</div>
+              <div style="font-size:16px;font-style:italic;color:#a6a46a">{{ w.year }}</div>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;margin:120px 0 72px">
+        <div style="width:80px;height:1px;background:rgba(201,168,98,0.5)"></div>
+        <h3 style="margin:0;font-family:'Pirata One','UnifrakturMaguntia',serif;font-weight:400;font-size:clamp(36px,4.5vw,60px);line-height:1;color:#ecebe4">{{ t.otherTitle }}</h3>
+        <p style="margin:0;font-size:19px;font-style:italic;color:#a9a68c">{{ t.otherHint }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:64px 44px;align-items:end">
+        <sc-for list="{{ otherWorks }}" as="w" hint-placeholder-count="8">
           <button onClick="{{ w.open }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:18px">
             <sc-if value="{{ w.isOval }}" hint-placeholder-val="{{ true }}">
               <div style="position:relative;width:100%;aspect-ratio:604/721;filter:drop-shadow(0 18px 26px rgba(0,0,0,0.6))" style-hover="transform:translateY(-4px)">
@@ -177,8 +211,8 @@ a:hover{color:#f1dca6}
 const D=()=>window.BRENDA||{works:[],bio:{es:[''],en:['']},refs:''};
 const RAD={rect:'2px',oval:'50%',arch:'999px 999px 2px 2px'};
 const T={
- es:{navAbout:'Sobre mí',navGallery:'Galería',navArtist:'La artista',navContact:'Contacto',heroKicker:'Artista costarricense · Óleo',heroLine:'Congelando el Tiempo — Inmortalizada a los Veinte',refsLabel:'Referencias',heroCta:'Ver la galería',aboutKicker:'Sobre mí',aboutTitle:'La pintora',aboutCap:'B',aboutP1:'renda González Solís pinta retratos que parecen salidos de un códice: damas, caballeras y figuras de leyenda, trabajadas al óleo y al lápiz de color con paciencia de taller.',aboutNote:'Biografía completa pendiente del documento de la artista.',galKicker:'Obra',galTitle:'Galería',galHint:'Toca una obra para verla en detalle',artKicker:'Detrás del lienzo',artTitle:'La artista',conKicker:'Contacto',conTitle:'Escríbeme',conLine:'Para encargos, retratos y tatuajes, envíame un mensaje en Instagram.',igArt:'Arte',igTat:'Tatuajes',work:'Obra'},
- en:{navAbout:'About',navGallery:'Gallery',navArtist:'The artist',navContact:'Contact',heroKicker:'Costa Rican artist · Oil',heroLine:'Freezing Time — Immortalized at Twenty',refsLabel:'References',heroCta:'View the gallery',aboutKicker:'About',aboutTitle:'The painter',aboutCap:'B',aboutP1:'renda González Solís paints portraits that seem lifted from a codex: ladies, knights and figures of legend, worked in oil and colored pencil with a workshop’s patience.',aboutNote:'Full biography pending from the artist’s document.',galKicker:'Work',galTitle:'Gallery',galHint:'Tap a piece to see it in detail',artKicker:'Behind the canvas',artTitle:'The artist',conKicker:'Contact',conTitle:'Write to me',conLine:'For commissions, portraits and tattoos, send me a message on Instagram.',igArt:'Art',igTat:'Tattoos',work:'Work'}};
+ es:{navAbout:'Sobre mí',navGallery:'Galería',navArtist:'La artista',navContact:'Contacto',heroKicker:'Artista costarricense · Óleo',heroLine:'Congelando el Tiempo — Inmortalizada a los Veinte',refsLabel:'Referencias',heroCta:'Ver la galería',aboutKicker:'Sobre mí',aboutTitle:'La pintora',aboutCap:'B',aboutP1:'renda González Solís pinta retratos que parecen salidos de un códice: damas, caballeras y figuras de leyenda, trabajadas al óleo y al lápiz de color con paciencia de taller.',aboutNote:'Biografía completa pendiente del documento de la artista.',galKicker:'Obra',galTitle:'Galería',galHint:'Toca una obra para verla en detalle',otherTitle:'Otros estilos',otherHint:'Lápiz de color y otras exploraciones',artKicker:'Detrás del lienzo',artTitle:'La artista',conKicker:'Contacto',conTitle:'Escríbeme',conLine:'Para encargos, retratos y tatuajes, envíame un mensaje en Instagram.',igArt:'Arte',igTat:'Tatuajes',work:'Obra'},
+ en:{navAbout:'About',navGallery:'Gallery',navArtist:'The artist',navContact:'Contact',heroKicker:'Costa Rican artist · Oil',heroLine:'Freezing Time — Immortalized at Twenty',refsLabel:'References',heroCta:'View the gallery',aboutKicker:'About',aboutTitle:'The painter',aboutCap:'B',aboutP1:'renda González Solís paints portraits that seem lifted from a codex: ladies, knights and figures of legend, worked in oil and colored pencil with a workshop’s patience.',aboutNote:'Full biography pending from the artist’s document.',galKicker:'Work',galTitle:'Gallery',galHint:'Tap a piece to see it in detail',otherTitle:'Other styles',otherHint:'Colored pencil and other explorations',artKicker:'Behind the canvas',artTitle:'The artist',conKicker:'Contact',conTitle:'Write to me',conLine:'For commissions, portraits and tattoos, send me a message on Instagram.',igArt:'Art',igTat:'Tattoos',work:'Work'}};
 const PHOTOS=[{src:'assets/foto-caballero.jpg',pos:'center 30%'},{src:'assets/foto-expo.jpg',pos:'center 20%'},{src:'assets/foto-cueva.jpg',pos:'center 30%'},{src:'assets/foto-jardin.jpg',pos:'center 40%'},{src:'assets/foto-museo.jpg',pos:'center 60%'}];
 class Component extends DCLogic {
   state={lang:null,sel:-1};
@@ -189,9 +223,10 @@ class Component extends DCLogic {
     if(!window.BRENDA&&!this._w){this._w=setInterval(()=>{if(window.BRENDA){clearInterval(this._w);this.forceUpdate();}},100);}
     const lang=this.state.lang||this.props.idioma||'es';const t=T[lang];const data=D();
     const works=data.works.map((w,i)=>({...w,radius:RAD[w.shape],isOval:w.shape==='oval',isRect:w.shape!=='oval',title:w[lang].t,desc:w[lang].d,meta:[w.year,w[lang].tec,w.size].filter(Boolean).join(' · '),open:()=>this.setState({sel:i})}));
+    const mainWorks=works.filter(w=>w.group!=='otros'),otherWorks=works.filter(w=>w.group==='otros');
     const bio=data.bio[lang];const lead=bio[0]||'';
     const on='#c9a862',off='transparent';
-    return {t,works,photos:PHOTOS,hasSel:this.state.sel>=0,sel:works[this.state.sel]||{},stop:e=>e.stopPropagation(),
+    return {t,works,mainWorks,otherWorks,photos:PHOTOS,hasSel:this.state.sel>=0,sel:works[this.state.sel]||{},stop:e=>e.stopPropagation(),
       bioCap:lead.charAt(0),bioLead:lead.slice(1),bioRest:bio.slice(1),refs:data.refs,
       close:()=>this.setState({sel:-1}),prev:e=>{e.stopPropagation();this.step(-1);},next:e=>{e.stopPropagation();this.step(1);},
       setEs:()=>this.setState({lang:'es'}),setEn:()=>this.setState({lang:'en'}),
