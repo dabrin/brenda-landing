@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+<script src="obras.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#efe5cc;color:#2e2116;font-family:'IM Fell English',Georgia,serif;-webkit-font-smoothing:antialiased}
+a{color:#9b2d20;text-decoration:none}
+a:hover{color:#2b3f7c}
+*{box-sizing:border-box}
+</style>
+</helmet>
+
+<div style="min-height:100vh;overflow:hidden;background:radial-gradient(ellipse at 20% 10%,#f6eed8 0%,transparent 55%),radial-gradient(ellipse at 85% 70%,#e6d6b0 0%,transparent 60%),#efe5cc">
+
+  <nav style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px clamp(20px,5vw,64px);background:rgba(239,229,204,0.94);border-bottom:3px double #9b2d20">
+    <a href="#inicio" style="font-family:'Grenze Gotisch',serif;font-weight:700;font-size:30px;color:#2e2116;line-height:1">Brenda <span style="color:#9b2d20">G.S.</span></a>
+    <div style="display:flex;align-items:center;gap:clamp(14px,2.6vw,32px);flex-wrap:wrap;justify-content:flex-end">
+      <a href="#sobre" style="font-family:'IM Fell English SC',serif;font-size:18px;letter-spacing:0.06em;color:#2e2116" style-hover="color:#9b2d20">{{ t.navAbout }}</a>
+      <a href="#galeria" style="font-family:'IM Fell English SC',serif;font-size:18px;letter-spacing:0.06em;color:#2e2116" style-hover="color:#9b2d20">{{ t.navGallery }}</a>
+      <a href="#artista" style="font-family:'IM Fell English SC',serif;font-size:18px;letter-spacing:0.06em;color:#2e2116" style-hover="color:#9b2d20">{{ t.navArtist }}</a>
+      <a href="#contacto" style="font-family:'IM Fell English SC',serif;font-size:18px;letter-spacing:0.06em;color:#2e2116" style-hover="color:#9b2d20">{{ t.navContact }}</a>
+      <div style="display:flex;border:1px solid #2e2116;overflow:hidden">
+        <button onClick="{{ setEs }}" style="font-family:'IM Fell English SC',serif;font-size:15px;padding:5px 12px;border:0;cursor:pointer;background:{{ esBg }};color:{{ esFg }}">es</button>
+        <button onClick="{{ setEn }}" style="font-family:'IM Fell English SC',serif;font-size:15px;padding:5px 12px;border:0;cursor:pointer;background:{{ enBg }};color:{{ enFg }}">en</button>
+      </div>
+    </div>
+  </nav>
+
+  <header id="inicio" data-screen-label="01 Inicio" style="position:relative;padding:clamp(60px,8vw,110px) clamp(20px,6vw,80px) clamp(70px,9vw,120px)">
+    <img src="assets/dragon-colgante.png" alt="" style="position:absolute;top:0;right:clamp(-50px,1vw,30px);width:clamp(170px,20vw,300px);pointer-events:none;mix-blend-mode:multiply">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,80px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <div style="font-family:'IM Fell English SC',serif;font-size:19px;letter-spacing:0.12em;color:#9b2d20">{{ t.heroKicker }}</div>
+        <h1 style="margin:0;display:flex;align-items:flex-end;flex-wrap:wrap;gap:0 6px;font-family:'Grenze Gotisch',serif;font-weight:600;font-size:clamp(58px,8vw,112px);line-height:0.9;color:#2e2116">
+          <img src="assets/inicial-b.png" alt="B" style="width:clamp(120px,14vw,190px);margin-left:-8px;margin-bottom:-6px">
+          <span style="padding-bottom:6px">renda</span>
+          <span style="flex-basis:100%;padding-top:10px">González Solís</span>
+        </h1>
+        <p style="margin:0;max-width:520px;font-size:clamp(21px,2.1vw,25px);font-style:italic;line-height:1.45;color:#4a3826;text-wrap:pretty">{{ t.heroLine }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:6px">
+          <a href="#galeria" style="font-family:'IM Fell English SC',serif;font-size:19px;padding:13px 30px;background:#9b2d20;color:#f6eed8;border:1px solid #9b2d20" style-hover="background:#2b3f7c;border-color:#2b3f7c;color:#f6eed8">{{ t.heroCta }}</a>
+          <a href="#sobre" style="font-family:'IM Fell English SC',serif;font-size:19px;padding:13px 30px;color:#2e2116;border:1px solid #2e2116" style-hover="color:#9b2d20;border-color:#9b2d20">{{ t.navAbout }}</a>
+        </div>
+      </div>
+      <div style="justify-self:center;width:min(100%,460px);padding:10px;border:2px solid #b8913f;outline:1px solid #9b2d20;outline-offset:6px;background:#f6eed8;transform:rotate(1.2deg);box-shadow:0 20px 40px rgba(60,40,20,0.22)">
+        <img src="assets/obras/espada.png" alt="Guerrera de Acero" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover">
+        <div style="padding:12px 4px 2px;display:flex;justify-content:space-between;gap:10px;font-style:italic;font-size:17px;color:#4a3826"><span>{{ heroWork }}</span><span style="color:#9b2d20">MMXXV</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div style="display:flex;align-items:center;justify-content:center;gap:14px;padding:0 24px">
+    <span style="flex:1;max-width:420px;height:0;border-top:3px double #b8913f"></span>
+    <span style="width:10px;height:10px;transform:rotate(45deg);background:#9b2d20"></span>
+    <span style="width:14px;height:14px;transform:rotate(45deg);background:#2b3f7c"></span>
+    <span style="width:10px;height:10px;transform:rotate(45deg);background:#9b2d20"></span>
+    <span style="flex:1;max-width:420px;height:0;border-top:3px double #b8913f"></span>
+  </div>
+
+  <section id="sobre" data-screen-label="02 Sobre mí" style="position:relative;padding:clamp(80px,10vw,130px) clamp(20px,6vw,80px)">
+    <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(40px,6vw,90px);align-items:start">
+      <div style="position:relative;justify-self:center;width:min(100%,380px)">
+        <div style="padding:8px;border:2px solid #2e2116;border-radius:200px 200px 0 0;background:#f6eed8">
+          <img src="assets/foto-caballete.jpg" alt="Brenda junto a su obra" style="display:block;width:100%;aspect-ratio:3/4.3;object-fit:cover;object-position:center 25%;border-radius:192px 192px 0 0">
+        </div>
+        <img src="assets/voluta.png" alt="" style="position:absolute;left:-70px;bottom:-60px;width:200px;mix-blend-mode:multiply;pointer-events:none">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="font-family:'IM Fell English SC',serif;font-size:19px;letter-spacing:0.12em;color:#9b2d20">{{ t.aboutKicker }}</div>
+        <h2 style="margin:0;font-family:'Grenze Gotisch',serif;font-weight:600;font-size:clamp(46px,5.5vw,74px);line-height:1;color:#2e2116">{{ t.aboutTitle }}</h2>
+        <p style="margin:0;font-size:23px;line-height:1.5;color:#2e2116;text-wrap:pretty"><span style="float:left;font-family:'Grenze Gotisch',serif;font-weight:700;font-size:92px;line-height:0.78;padding:8px 12px 0 0;color:#9b2d20">{{ bioCap }}</span>{{ bioLead }}</p>
+        <sc-for list="{{ bioRest }}" as="para" hint-placeholder-count="2">
+          <p style="margin:0;font-size:20px;line-height:1.65;color:#3d2d1e;text-wrap:pretty">{{ para }}</p>
+        </sc-for>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 20px;border-left:3px solid #2b3f7c;background:rgba(43,63,124,0.06)">
+          <span style="font-family:'IM Fell English SC',serif;font-size:17px;color:#2b3f7c">{{ t.refsLabel }}</span>
+          <span style="font-size:19px;font-style:italic;color:#3d2d1e">{{ refs }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria" data-screen-label="03 Galería" style="position:relative;padding:clamp(80px,10vw,130px) clamp(20px,5vw,64px);background:#e7d9b6;border-top:3px double #9b2d20;border-bottom:3px double #9b2d20">
+    <img src="assets/fragmento.png" alt="" style="position:absolute;left:-60px;top:40px;width:300px;opacity:0.55;mix-blend-mode:multiply;transform:rotate(-8deg);pointer-events:none">
+    <div style="position:relative;max-width:1240px;margin:0 auto">
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:70px">
+        <div style="font-family:'IM Fell English SC',serif;font-size:19px;letter-spacing:0.12em;color:#9b2d20">{{ t.galKicker }}</div>
+        <h2 style="margin:0;font-family:'Grenze Gotisch',serif;font-weight:600;font-size:clamp(52px,6vw,88px);line-height:1;color:#2e2116">{{ t.galTitle }}</h2>
+        <p style="margin:0;font-size:20px;font-style:italic;color:#5a4630">{{ t.galHint }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:60px 40px;align-items:end">
+        <sc-for list="{{ works }}" as="w" hint-placeholder-count="10">
+          <button onClick="{{ w.open }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:16px">
+            <sc-if value="{{ w.isOval }}" hint-placeholder-val="{{ true }}">
+              <div style="position:relative;width:100%;aspect-ratio:604/721;filter:drop-shadow(0 14px 18px rgba(60,40,20,0.35))" style-hover="transform:translateY(-4px)">
+                <img src="{{ w.src }}" alt="{{ w.title }}" style="position:absolute;top:14.6%;left:13.2%;width:73.6%;height:74.6%;object-fit:cover;object-position:center 25%;border-radius:50%;background:#2e2116">
+                <img src="assets/marco-oval.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+              </div>
+            </sc-if>
+            <sc-if value="{{ w.isRect }}" hint-placeholder-val="{{ false }}">
+              <div style="position:relative;width:100%;margin:9% 0 6%;filter:drop-shadow(0 14px 18px rgba(60,40,20,0.35))" style-hover="transform:translateY(-4px)">
+                <div style="padding:7.5%;background:linear-gradient(140deg,#6e4f20 0%,#c9a862 20%,#8a6a2e 42%,#e0c48a 60%,#6e4f20 80%,#a88a4c 100%);box-shadow:inset 0 0 0 2px rgba(240,215,150,0.55),inset 0 0 18px rgba(40,28,10,0.6)">
+                  <div style="padding:4px;background:#2a2414;box-shadow:inset 0 0 0 1px #e0c48a,0 0 0 3px #7a5a26">
+                    <img src="{{ w.src }}" alt="{{ w.title }}" style="display:block;width:100%;aspect-ratio:{{ w.ratio }};object-fit:cover">
+                  </div>
+                </div>
+                <img src="assets/crest-top.png" alt="" style="position:absolute;top:0;left:50%;width:48%;transform:translate(-50%,-58%);pointer-events:none">
+                <img src="assets/crest-bottom.png" alt="" style="position:absolute;bottom:0;left:50%;width:36%;transform:translate(-50%,52%);pointer-events:none">
+                <img src="assets/crest-side.png" alt="" style="position:absolute;left:0;top:50%;width:11%;transform:translate(-48%,-50%);pointer-events:none">
+                <img src="assets/crest-side.png" alt="" style="position:absolute;right:0;top:50%;width:11%;transform:translate(48%,-50%) scaleX(-1);pointer-events:none">
+              </div>
+            </sc-if>
+            <div style="display:flex;align-items:baseline;gap:10px">
+              <span style="font-family:'Grenze Gotisch',serif;font-weight:700;font-size:26px;color:#9b2d20;min-width:34px">{{ w.num }}</span>
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <span style="font-size:21px;line-height:1.2;color:#2e2116">{{ w.title }}</span>
+                <span style="font-size:16px;font-style:italic;color:#6a5438">{{ w.year }}</span>
+              </div>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="artista" data-screen-label="04 La artista" style="position:relative;padding:clamp(80px,10vw,130px) clamp(20px,5vw,64px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:56px">
+        <div style="font-family:'IM Fell English SC',serif;font-size:19px;letter-spacing:0.12em;color:#9b2d20">{{ t.artKicker }}</div>
+        <h2 style="margin:0;font-family:'Grenze Gotisch',serif;font-weight:600;font-size:clamp(46px,5.5vw,74px);line-height:1;color:#2e2116">{{ t.artTitle }}</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:22px">
+        <sc-for list="{{ photos }}" as="p" hint-placeholder-count="5">
+          <div style="padding:8px 8px 30px;background:#f6eed8;border:1px solid #b8913f;box-shadow:0 10px 22px rgba(60,40,20,0.16)">
+            <img src="{{ p.src }}" alt="" style="display:block;width:100%;aspect-ratio:3/4.4;object-fit:cover;object-position:{{ p.pos }};filter:sepia(0.15)">
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" data-screen-label="05 Contacto" style="position:relative;padding:clamp(90px,11vw,140px) 24px;background:#2f3a1e;color:#efe5cc;text-align:center">
+    <img src="assets/dragon-rampante.png" alt="" style="position:absolute;left:clamp(-40px,3vw,60px);bottom:40px;width:clamp(140px,15vw,230px);pointer-events:none">
+    <div style="position:relative;max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px">
+      <div style="font-family:'IM Fell English SC',serif;font-size:19px;letter-spacing:0.12em;color:#d9b866">{{ t.conKicker }}</div>
+      <h2 style="margin:0;font-family:'Grenze Gotisch',serif;font-weight:600;font-size:clamp(52px,6vw,88px);line-height:1;color:#f6eed8">{{ t.conTitle }}</h2>
+      <p style="margin:0;font-size:22px;line-height:1.55;font-style:italic;color:#e4d5b0;text-wrap:pretty">{{ t.conLine }}</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:18px">
+        <a href="https://instagram.com/bren_artist" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;min-width:250px;padding:22px 30px;background:#efe5cc;border:2px solid #b8913f;outline:1px solid #efe5cc;outline-offset:4px" style-hover="background:#f6eed8">
+          <span style="font-family:'IM Fell English SC',serif;font-size:17px;color:#9b2d20">{{ t.igArt }}</span>
+          <span style="font-size:26px;color:#2e2116">@bren_artist</span>
+        </a>
+        <a href="https://instagram.com/brens_tattoos" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;min-width:250px;padding:22px 30px;background:#efe5cc;border:2px solid #b8913f;outline:1px solid #efe5cc;outline-offset:4px" style-hover="background:#f6eed8">
+          <span style="font-family:'IM Fell English SC',serif;font-size:17px;color:#9b2d20">{{ t.igTat }}</span>
+          <span style="font-size:26px;color:#2e2116">@brens_tattoos</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:24px clamp(20px,5vw,64px);background:#1f2714;color:#cfc29c">
+    <div style="font-family:'Grenze Gotisch',serif;font-weight:600;font-size:24px;color:#efe5cc">Brenda González Solís</div>
+    <div style="font-family:'IM Fell English SC',serif;font-size:16px;letter-spacing:0.06em">© 2026 · Powered by: Brinza Solutions</div>
+  </footer>
+
+  <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ close }}" style="position:fixed;inset:0;z-index:50;background:rgba(30,22,14,0.88);display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,36px);padding:clamp(16px,4vw,48px)">
+      <button onClick="{{ prev }}" style="flex:none;width:48px;height:48px;border:1px solid #d9b866;background:transparent;color:#efe5cc;font-size:24px;cursor:pointer">‹</button>
+      <div onClick="{{ stop }}" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(24px,4vw,52px);max-width:1180px;max-height:100%;overflow:auto;padding:clamp(20px,3vw,40px);background:#efe5cc;border:2px solid #b8913f;outline:1px solid #9b2d20;outline-offset:-10px">
+        <img src="{{ sel.src }}" alt="{{ sel.title }}" style="display:block;max-width:min(600px,78vw);max-height:72vh;object-fit:contain;border:1px solid #2e2116">
+        <div style="flex:1 1 300px;max-width:420px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IM Fell English SC',serif;font-size:17px;color:#9b2d20">{{ sel.meta }}</div>
+          <div style="font-family:'Grenze Gotisch',serif;font-weight:600;font-size:clamp(36px,3.6vw,50px);line-height:1;color:#2e2116">{{ sel.title }}</div>
+          <div style="width:60px;border-top:3px double #b8913f"></div>
+          <p style="margin:0;font-size:20px;line-height:1.6;color:#3d2d1e;text-wrap:pretty">{{ sel.desc }}</p>
+        </div>
+      </div>
+      <button onClick="{{ next }}" style="flex:none;width:48px;height:48px;border:1px solid #d9b866;background:transparent;color:#efe5cc;font-size:24px;cursor:pointer">›</button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;idioma&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;es&quot;,&quot;en&quot;],&quot;default&quot;:&quot;es&quot;,&quot;tsType&quot;:&quot;'es'|'en'&quot;}}">
+const D=()=>window.BRENDA||{works:[],bio:{es:[''],en:['']},refs:''};
+const RAD={rect:'0px',oval:'50%',arch:'999px 999px 0 0'};
+const ROMAN=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
+const T={
+ es:{navAbout:'Sobre mí',navGallery:'Galería',navArtist:'La artista',navContact:'Contacto',heroKicker:'Artista costarricense · Óleo',heroLine:'Congelando el Tiempo — Inmortalizada a los Veinte',heroCta:'Ver la galería',aboutKicker:'Capítulo I',aboutTitle:'Sobre mí',refsLabel:'Referencias',galKicker:'Capítulo II',galTitle:'Galería',galHint:'Toca una obra para leer su historia',artKicker:'Capítulo III',artTitle:'La artista',conKicker:'Capítulo IV',conTitle:'Contacto',conLine:'Para encargos, retratos y tatuajes, envíame un mensaje en Instagram.',igArt:'Arte',igTat:'Tatuajes'},
+ en:{navAbout:'About',navGallery:'Gallery',navArtist:'The artist',navContact:'Contact',heroKicker:'Costa Rican artist · Oil',heroLine:'Freezing Time — Immortalized at Twenty',heroCta:'View the gallery',aboutKicker:'Chapter I',aboutTitle:'About me',refsLabel:'References',galKicker:'Chapter II',galTitle:'Gallery',galHint:'Tap a piece to read its story',artKicker:'Chapter III',artTitle:'The artist',conKicker:'Chapter IV',conTitle:'Contact',conLine:'For commissions, portraits and tattoos, send me a message on Instagram.',igArt:'Art',igTat:'Tattoos'}};
+const PHOTOS=[{src:'assets/foto-caballero.jpg',pos:'center 30%'},{src:'assets/foto-expo.jpg',pos:'center 20%'},{src:'assets/foto-cueva.jpg',pos:'center 30%'},{src:'assets/foto-jardin.jpg',pos:'center 40%'},{src:'assets/foto-museo.jpg',pos:'center 60%'}];
+class Component extends DCLogic {
+  state={lang:null,sel:-1};
+  componentDidMount(){this._k=e=>{if(this.state.sel<0)return;if(e.key==='Escape')this.setState({sel:-1});if(e.key==='ArrowRight')this.step(1);if(e.key==='ArrowLeft')this.step(-1);};window.addEventListener('keydown',this._k);}
+  componentWillUnmount(){window.removeEventListener('keydown',this._k);clearInterval(this._w);}
+  step(d){const n=D().works.length;this.setState(s=>({sel:(s.sel+d+n)%n}));}
+  renderVals(){
+    if(!window.BRENDA&&!this._w){this._w=setInterval(()=>{if(window.BRENDA){clearInterval(this._w);this.forceUpdate();}},100);}
+    const lang=this.state.lang||this.props.idioma||'es';const t=T[lang];const data=D();
+    const works=data.works.map((w,i)=>({...w,num:ROMAN[i],radius:RAD[w.shape],isOval:w.shape==='oval',isRect:w.shape!=='oval',title:w[lang].t,desc:w[lang].d,meta:[w.year,w[lang].tec,w.size].filter(Boolean).join(' · '),open:()=>this.setState({sel:i})}));
+    const bio=data.bio[lang];const lead=bio[0]||'';
+    return {t,works,photos:PHOTOS,hasSel:this.state.sel>=0,sel:works[this.state.sel]||{},stop:e=>e.stopPropagation(),
+      heroWork:(works[1]&&works[1].title)||'',
+      bioCap:lead.charAt(0),bioLead:lead.slice(1),bioRest:bio.slice(1),refs:data.refs,
+      close:()=>this.setState({sel:-1}),prev:e=>{e.stopPropagation();this.step(-1);},next:e=>{e.stopPropagation();this.step(1);},
+      setEs:()=>this.setState({lang:'es'}),setEn:()=>this.setState({lang:'en'}),
+      esBg:lang==='es'?'#2e2116':'transparent',esFg:lang==='es'?'#efe5cc':'#2e2116',enBg:lang==='en'?'#2e2116':'transparent',enFg:lang==='en'?'#efe5cc':'#2e2116'};
+  }
+}
+</script>
+</body>
+</html>
